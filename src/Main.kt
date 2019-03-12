@@ -19,6 +19,7 @@ fun main(args: Array<String>){
         Fish(3, "Perch", 1758)
     )
 
+    //sortByYearNamedDesc(animalsList)
     sortByNameAlphabetically(animalsList)
 }
 
