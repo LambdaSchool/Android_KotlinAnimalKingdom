@@ -9,7 +9,7 @@ abstract class Animal(
 ) {
     override fun toString(): String {
 //        return super.toString()
-        return "$id. $name discovered in $year moves by ${moveType.move}, breathes using ${breathType.breath}, and reproduces with ${reproduceType.reproduce}."
+        return "$id. The $name, which was named in $year, moves by ${moveType.move}, breathes using ${breathType.breath}, and reproduces with ${reproduceType.reproduce}."
     }
 }
 
