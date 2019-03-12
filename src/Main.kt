@@ -1,5 +1,5 @@
 fun main(args: Array<String>){
-    var mammalsList = mutableListOf<Animal>(
+    var animalsList = mutableListOf<Animal>(
         Mammal(1, "Panda", 1869),
         Mammal(2, "Zebra", 1778),
         Mammal(3, "Koala", 1816),
@@ -19,8 +19,15 @@ fun main(args: Array<String>){
         Fish(3, "Perch", 1758)
     )
 
-    mammalsList.forEach{
-        it.move()
+    sortByYearNamedDesc(animalsList)
+}
+
+fun sortByYearNamedDesc(list: MutableList<Animal>){
+    list.sortByDescending {
+        it.year
+    }
+    list.forEach{
+        println("${it.name} ${it.year}")
     }
 }
 
