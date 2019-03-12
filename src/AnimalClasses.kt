@@ -33,19 +33,19 @@ class Swim(animalName: String): Move(animalName){
     }
 }
 
-sealed class Breath(animalName: String){
+sealed class Breathe(animalName: String){
     abstract fun performBreath(animalName: String): String
 }
 
-class Lungs(animalName: String): Breath(animalName){
+class Lungs(animalName: String): Breathe(animalName){
     override fun performBreath(animalName: String): String {
-        return "$animalName breaths with lungs"
+        return "$animalName breathes with lungs"
     }
 }
 
-class Gills(animalName: String): Breath(animalName){
+class Gills(animalName: String): Breathe(animalName){
     override fun performBreath(animalName: String): String {
-        return "$animalName breaths with gills"
+        return "$animalName breathes with gills"
     }
 }
 
