@@ -41,7 +41,7 @@ fun sortByNameAlphabetically(list: MutableList<Animal>){
     }
 
     list.forEach{
-        println("${it.name}")
+        println("${it.name} ${it.year}")
     }
 }
 
@@ -50,7 +50,7 @@ fun sortByMoveType(list: MutableList<Animal>){
         it.move().split(" ")[1]
     }
     list.forEach{
-        println(it.move())
+        println("${it.name} ${it.move()} ${it.year}")
     }
 }
 
@@ -62,7 +62,7 @@ fun listAnimalsThatBreatheWithLungs(list: MutableList<Animal>){
         }
     }
     tempList.forEach{
-        println(it.name)
+        println("${it.name} ${it.year}")
     }
 }
 
