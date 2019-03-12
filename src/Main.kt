@@ -24,7 +24,8 @@ fun main(args: Array<String>){
     //sortByMoveType(animalsList)
     //listAnimalsThatBreatheWithLungs(animalsList)
     //listAnimalsThatBreatheWithLungsIn1758(animalsList)
-    listAnimalsThatLayEggsAndBreatheWithLungs(animalsList)
+    //listAnimalsThatLayEggsAndBreatheWithLungs(animalsList)
+    listAnimalsAlphabeticallyIn1758(animalsList)
 }
 
 fun sortByYearNamedDesc(list: MutableList<Animal>){
@@ -87,6 +88,20 @@ fun listAnimalsThatLayEggsAndBreatheWithLungs(list: MutableList<Animal>){
         }
     }
     tempList.forEach{
+        println("${it.name} ${it.year}")
+    }
+}
+
+fun listAnimalsAlphabeticallyIn1758(list: MutableList<Animal>){
+    list.sortBy {
+        it.name
+    }
+    for (n in list.size - 1 downTo 0) {
+        if(list[n].year != 1758){
+            list.removeAt(n)
+        }
+    }
+    list.forEach{
         println("${it.name} ${it.year}")
     }
 }
