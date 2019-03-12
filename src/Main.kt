@@ -22,7 +22,8 @@ fun main(args: Array<String>){
     //sortByYearNamedDesc(animalsList)
     //sortByNameAlphabetically(animalsList)
     //sortByMoveType(animalsList)
-    listAnimalsThatBreatheWithLungs(animalsList)
+    //listAnimalsThatBreatheWithLungs(animalsList)
+    listAnimalsThatBreatheWithLungsIn1758(animalsList)
 }
 
 fun sortByYearNamedDesc(list: MutableList<Animal>){
@@ -62,6 +63,18 @@ fun listAnimalsThatBreatheWithLungs(list: MutableList<Animal>){
     }
     tempList.forEach{
         println(it.name)
+    }
+}
+
+fun listAnimalsThatBreatheWithLungsIn1758(list: MutableList<Animal>){
+    var tempList = mutableListOf<Animal>()
+    list.forEach{
+        if(it.breath().split(" ")[3] == "lungs" && it.year == 1758){
+            tempList.add(it)
+        }
+    }
+    tempList.forEach{
+        println("${it.name} ${it.year}")
     }
 }
 
