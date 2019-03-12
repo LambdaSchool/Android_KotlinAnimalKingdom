@@ -19,19 +19,26 @@ fun main(args: Array<String>){
         Fish(3, "Perch", 1758)
     )
 
-    //sortByYearNamedDesc(animalsList)
+    sortByYearNamedDesc(animalsList)
     //sortByNameAlphabetically(animalsList)
     //sortByMoveType(animalsList)
     //listAnimalsThatBreatheWithLungs(animalsList)
     //listAnimalsThatBreatheWithLungsIn1758(animalsList)
     //listAnimalsThatLayEggsAndBreatheWithLungs(animalsList)
-    listAnimalsAlphabeticallyIn1758(animalsList)
+    //listAnimalsAlphabeticallyIn1758(animalsList)
 }
 
 fun sortByYearNamedDesc(list: MutableList<Animal>){
-    list.sortByDescending {
+    list.sortWith(Comparator<Animal>{ a1, a2 ->
+        when {
+            a1.year < a2.year -> 1
+            a1.year > a2.year -> -1
+            else -> 0
+        }
+    })
+    /*list.sortByDescending {
         it.year
-    }
+    }*/
     list.forEach{
         println("${it.name} ${it.year}")
     }
@@ -48,9 +55,16 @@ fun sortByNameAlphabetically(list: MutableList<Animal>){
 }
 
 fun sortByMoveType(list: MutableList<Animal>){
-    list.sortBy {
+    list.sortWith(Comparator<Animal>{ a1, a2 ->
+        when {
+            a1.move().split(" ")[1] == a2.move().split(" ")[1] -> 1
+            a1.move().split(" ")[1] != a2.move().split(" ")[1] -> -1
+            else -> 0
+        }
+    })
+    /*list.sortBy {
         it.move().split(" ")[1]
-    }
+    }*/
     list.forEach{
         println("${it.name} ${it.move()} ${it.year}")
     }
