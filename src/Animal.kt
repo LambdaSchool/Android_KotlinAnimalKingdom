@@ -1,18 +1,18 @@
 abstract class Animal(val id: Int, val name: String, val yearDiscovered: Int) {
 
     fun eat(): String {
-        return "Animal is eating"
+        return "$name is eating"
     }
 
-    fun move(): String {
-        return "Animal is moving"
+    open fun move(): String {
+        return "$name is moving"
     }
 
-    fun breathe(): String {
-        return "Animal is breathing"
+    open fun breathe(): String {
+        return "$name is breathing"
     }
 
-    fun reproduce(): String {
-        return "Animal is reproducing"
+    open fun reproduce(): String {
+        return "$name is reproducing"
     }
 }
