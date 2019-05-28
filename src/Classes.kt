@@ -1,4 +1,4 @@
-sealed class Animal(id: Int, val name: String, yearDiscovered: Int) {
+sealed class Animal(id: Int, val name: String, val yearDiscovered: Int) {
     fun eat(): String {
         return "$name eats"
     }

@@ -1,7 +1,5 @@
 fun main() {
 
-    println("Hello there")
-
 
     val list = arrayListOf<Animal>()
 
@@ -22,13 +20,25 @@ fun main() {
     list.add(Fish(14, "Perch", 1758))
 
 
-    val returnSortedAlphabetical = {list: ArrayList<Animal> -> list.sortBy { it.name }
-
-        for(item in list) {
-            println(item.name)
-        }
+    val listSortedAlphabetical = { list: ArrayList<Animal> -> list.sortBy { it.name }
+        listAllItems(list)
     }
 
-    returnSortedAlphabetical(list)
+    val listSortedYearDiscovered = {list: ArrayList<Animal> -> list.sortBy { it.yearDiscovered }
+        listAllItems(list)
+    }
 
+    println("ALPHABETICAL")
+    listSortedAlphabetical(list)
+    println("YEAR DISCOVERED")
+    listSortedYearDiscovered(list)
+
+
+
+}
+
+fun listAllItems(list: ArrayList<Animal>) {
+    for (item in list) {
+        println("Name: ${item.name}, Year discovered: ${item.yearDiscovered}")
+    }
 }
