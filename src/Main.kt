@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     println(mammal.breathe())
     println(mammal.reproduce())*/
 
-    val animals = listOf<Animal>(
+    val animals: List<Animal> = listOf<Animal>(
         Mammal(Random.nextInt(Int.MAX_VALUE), "Panda", 1869),
         Mammal(Random.nextInt(Int.MAX_VALUE), "Zebra", 1778),
         Mammal(Random.nextInt(Int.MAX_VALUE), "Koala", 1816),
@@ -24,6 +24,5 @@ fun main(args: Array<String>) {
         Fish(Random.nextInt(Int.MAX_VALUE), "Catfish", 1817),
         Fish(Random.nextInt(Int.MAX_VALUE), "Perch", 1758)
     )
-
 
 }
