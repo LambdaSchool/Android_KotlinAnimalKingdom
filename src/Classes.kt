@@ -5,48 +5,49 @@ sealed class Animal(id: Int, val name: String, val yearDiscovered: Int) {
     open fun move(): String {
         return "$name walks"
     }
-    abstract fun breath(): String
+    abstract fun breathe(): String
     abstract fun reproduce(): String
 
 }
 
-class Mammal(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
-    override fun breath(): String {
-        return "$name huffs and puffs"
-    }
-
-    override fun reproduce(): String {
-       return "$name has a live birth"
-    }
-
-    fun walk() = this.move()
-}
-
-class Bird(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
-
-    override fun breath(): String {
-        return "$name breathes in the wind"
-    }
-
-    override fun reproduce(): String {
-        return "$name lays an egg"
-    }
-
+class Mammal(id: Int, name: String, yearDiscovered: Int) : Animal(id, name, yearDiscovered) {
     override fun move(): String {
-        return "$name flies up high"
+        return "walk"
+    }
+
+    override fun breathe(): String {
+        return "lungs"
+    }
+
+    override fun reproduce(): String {
+        return "live births"
     }
 }
 
-class Fish(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
-    override fun breath(): String {
-        return "$name sucks in some water"
+class Bird(id: Int, name: String, yearDiscovered: Int) : Animal(id, name, yearDiscovered) {
+    override fun move(): String {
+        return "fly"
+    }
+
+    override fun breathe(): String {
+        return "lungs"
     }
 
     override fun reproduce(): String {
-        return "$name lays an egg"
+        return "eggs"
+    }
+}
+
+class Fish(id: Int, name: String, yearDiscovered: Int) : Animal(id, name, yearDiscovered) {
+    override fun move(): String {
+        return "swim"
     }
 
-    override fun move(): String {
-        return "$name swims around"
+    override fun breathe(): String {
+        return "gills"
+    }
+
+    override fun reproduce(): String {
+        return "eggs"
     }
 }

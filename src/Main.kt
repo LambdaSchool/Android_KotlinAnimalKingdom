@@ -27,11 +27,46 @@ fun main() {
     val listSortedYearDiscovered = {list: ArrayList<Animal> -> list.sortBy { it.yearDiscovered }
         listAllItems(list)
     }
+    val listSortedByMovement = {list: ArrayList<Animal> -> list.sortBy { it.move()}
+        listAllItemsWithDetails(list)
+    }
+    val subListThatWalks = {list: ArrayList<Animal> -> list.sortBy { it.move()}
+        val subList = ArrayList<Animal>()
+        for (item in list) {
+            if (item.move() == "walk") {
+                subList.add(item)
+            }
+        }
+        listAllItemsWithDetails(subList)
+    }
+    val subListThatHasLungs = {list: ArrayList<Animal> -> list.sortBy { it.breathe()}
+        val subList = ArrayList<Animal>()
+        for (item in list) {
+            if (item.breathe() == "lungs") {
+                subList.add(item)
+            }
+        }
+        listAllItemsWithDetails(subList)
+    }
+
+
+
 
     println("ALPHABETICAL")
     listSortedAlphabetical(list)
     println("YEAR DISCOVERED")
     listSortedYearDiscovered(list)
+    println("MOVEMENT")
+    listSortedByMovement(list)
+    println("WALK ONLY")
+    subListThatWalks(list)
+    println("LUNGS ONLY")
+    subListThatHasLungs(list)
+
+
+
+
+
 
 
 
@@ -40,5 +75,11 @@ fun main() {
 fun listAllItems(list: ArrayList<Animal>) {
     for (item in list) {
         println("Name: ${item.name}, Year discovered: ${item.yearDiscovered}")
+    }
+}
+
+fun listAllItemsWithDetails(list: ArrayList<Animal>) {
+    for (item in list) {
+        println("${item.name} moves with:${item.move()}, breathes with:${item.breathe()} and reproduces with:${item.reproduce()}")
     }
 }
