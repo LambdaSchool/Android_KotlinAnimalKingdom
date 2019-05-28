@@ -5,16 +5,16 @@ abstract class Animal(val id: Int,
                       val moveType: Move,
                       val breatheType: Breathe,
                       val reproduceType: Reproduce) {
-    fun move() {
-        moveType.move()
+    fun move(): String {
+        return moveType.move()
     }
 
-    fun breathe() {
-        breatheType.breathe()
+    fun breathe(): String {
+        return breatheType.breathe()
     }
 
-    fun reproduce() {
-        reproduceType.reproduce()
+    fun reproduce(): String {
+        return reproduceType.reproduce()
     }
 
 }
@@ -47,55 +47,55 @@ class Fish(id: Int, name: String, yearDiscovered: Int):
 }
 
 sealed class Move() {
-    abstract fun move()
+    abstract fun move(): String
 }
 
 class Walk(): Move() {
-    override fun move() {
-        println("The animal walks")
+    override fun move(): String  {
+        return "The animal walks"
     }
 }
 
 class Fly(): Move() {
-    override fun move() {
-        println("The animal flies")
+    override fun move(): String  {
+        return "The animal flies"
     }
 }
 
 class Swim(): Move() {
-    override fun move() {
-        println("The animal swims")
+    override fun move(): String {
+        return "The animal swims"
     }
 }
 
 sealed class Breathe() {
-    abstract fun breathe()
+    abstract fun breathe(): String
 }
 
 class Lungs(): Breathe() {
-    override fun breathe() {
-        println("The animal breathes with lungs")
+    override fun breathe(): String {
+        return "The animal breathes with lungs"
     }
 }
 
 class Gills(): Breathe() {
-    override fun breathe() {
-        println("The animal breathes with gills")
+    override fun breathe(): String  {
+        return "The animal breathes with gills"
     }
 }
 
 sealed class Reproduce() {
-    abstract fun reproduce()
+    abstract fun reproduce(): String
 }
 
 class LiveBirth(): Reproduce() {
-    override fun reproduce() {
-        println("The animal reproduces with live birth")
+    override fun reproduce(): String {
+        return "The animal reproduces with live birth"
     }
 }
 
 class Eggs(): Reproduce() {
-    override fun reproduce() {
-        println("The animal reproduces with eggs")
+    override fun reproduce(): String {
+        return "The animal reproduces with eggs"
     }
 }

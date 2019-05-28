@@ -1,6 +1,29 @@
 fun main(args: Array<String>) {
-    loadAnimals()
+    val animals = loadAnimals()
+    println("Animals sorted by descending year discovered")
+    animals.sortByDescending { it.yearDiscovered }
+    animals.forEach { println("${it.name} ${it.yearDiscovered}") }
+    println("Animals sorted by ascending name")
+    animals.sortBy { it.name }
+    animals.forEach { println("${it.name} ${it.yearDiscovered}") }
+    println("Animals sorted by how they move")
+    animals.sortBy { it.move() }
+    animals.forEach { println("${it.name} ${it.yearDiscovered} ${it.move()}") }
+    println("Animals filtered by breathing with lungs")
+    animals.filter {it.breatheType is Lungs}.forEach { println(it.name) }
+    println("Animals filtered by breathing with lungs and named in 1758")
+    animals.filter{it.breatheType is Lungs && it.yearDiscovered == 1758}.
+            forEach{println("${it.name} ${it.yearDiscovered}")}
+    println("Animals filtered by laying eggs and breathing with lungs")
+    animals.filter {it.reproduceType is Eggs && it.breatheType is Lungs}.
+            forEach{println("${it.name} ${it.yearDiscovered}")}
+    println("Animals sorted by name and were named in 1758")
+    animals.sortBy{it.name}
+    animals.sortedBy{it.name}.filter{it.yearDiscovered == 1758}.
+            forEach{println("${it.name} ${it.yearDiscovered}")}
+
 }
+
 
 fun loadAnimals(): ArrayList<Animal> {
     val animals = ArrayList<Animal>()
@@ -21,6 +44,6 @@ fun loadAnimals(): ArrayList<Animal> {
     animals.add(Fish(13, "Salmon", 1758))
     animals.add(Fish(14, "Catfish", 1817))
     animals.add(Fish(15, "Perch", 1758))
-    
+
     return animals
 }
