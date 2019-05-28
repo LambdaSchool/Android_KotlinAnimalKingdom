@@ -13,6 +13,7 @@ fun main(args: Array<String>) {
     println("")
     sortByLayEggsAndBreathWithLungs()
     println("")
+    sortByNamedIn1758Alphabetically()
 }
 
 var animals = listOf<Animals>(
@@ -56,25 +57,56 @@ fun sortByMovementType(){
 }
 
 fun sortByBreathWithLungs(){
-    var sortedList = animals.sortedWith(compareBy {it.breath()})
+    var sortedList =  mutableListOf<Animals>()
+    for(i in animals) {
+        when(i.breath()){
+        "lungs" -> sortedList.add(i)
+        }
+    }
     for(obj in sortedList){
         println(obj.name  + " " + obj.year)
     }
 }
 
 fun sortByBreathWithLungsAndNamedIn1758(){
-    var sortedList = animals.sortedWith(compareBy { it.breath() == "lungs" && it.year == 1758 })
+    var sortedList =  mutableListOf<Animals>()
+    for(i in animals) {
+        when(i.breath()){
+            "lungs" -> when(i.year){
+                1758 -> sortedList.add(i)
+            }
+        }
+    }
+
     for(obj in sortedList){
         println(obj.name + " "  + " " + obj.year)
     }
 }
 
 fun sortByLayEggsAndBreathWithLungs(){
-    var sortedList = animals.sortedWith(compareBy { it.breath() == "lungs" && it.reproduce() == "eggs" })
+    var sortedList =  mutableListOf<Animals>()
+    for(i in animals) {
+        when(i.breath()){
+            "lungs" -> when(i.reproduce()){
+                "lay eggs" -> sortedList.add(i)
+            }
+        }
+    }
     for(obj in sortedList){
         println(obj.name   + " " + obj.year)
     }
 }
 
 fun sortByNamedIn1758Alphabetically(){
+    var sortedList =  mutableListOf<Animals>()
+    for(i in animals) {
+        when(i.year){
+            1758 -> sortedList.add(i)
+        }
+    }
+
+    sortedList.sortBy { it.name }
+    for(obj in sortedList){
+        println(obj.name   + " " + obj.year)
+    }
 }
