@@ -5,45 +5,71 @@ abstract class Animal(val id: Int,
                       val moveType: Move,
                       val breatheType: Breathe,
                       val reproduceType: Reproduce) {
+    fun move() {
+        moveType.move()
+    }
+
+    fun breathe() {
+        breatheType.breathe()
+    }
+
+    fun reproduce() {
+        reproduceType.reproduce()
+    }
 
 }
 
-class Mammal(id: Int, name: String, yearDiscovered: Int,
-             walk: Walk, lungs: Lungs, liveBirth: LiveBirth):
-    Animal(id, name, yearDiscovered, walk, lungs, liveBirth) {}
+class Mammal(id: Int, name: String, yearDiscovered: Int):
+    Animal(id, name, yearDiscovered, walk, lungs, liveBirth ) {
+    companion object{
+        val walk = Walk()
+        val lungs = Lungs()
+        val liveBirth = LiveBirth()
+    }
+}
 
-class Bird(id: Int, name: String, yearDiscovered: Int,
-             fly: Fly, lungs: Lungs, eggs: Eggs):
-    Animal(id, name, yearDiscovered, fly, lungs, eggs) {}
+class Bird(id: Int, name: String, yearDiscovered: Int):
+    Animal(id, name, yearDiscovered, fly, lungs, eggs) {
+    companion object {
+        val fly = Fly()
+        val lungs = Lungs()
+        val eggs = Eggs()
+    }
+}
 
-class Fish(id: Int, name: String, yearDiscovered: Int,
-             swim: Swim, gills: Gills, eggs: Eggs):
-    Animal(id, name, yearDiscovered, swim, gills, eggs) {}
+class Fish(id: Int, name: String, yearDiscovered: Int):
+    Animal(id, name, yearDiscovered, swim, gills, eggs) {
+    companion object {
+        val swim = Swim()
+        val gills = Gills()
+        val eggs = Eggs()
+    }
+}
 
-open class Move() {
-    open fun move() {}
+sealed class Move() {
+    abstract fun move()
 }
 
 class Walk(): Move() {
     override fun move() {
-        println("The animal walks");
+        println("The animal walks")
     }
 }
 
 class Fly(): Move() {
     override fun move() {
-        println("The animal flies");
+        println("The animal flies")
     }
 }
 
 class Swim(): Move() {
     override fun move() {
-        println("The animal swims");
+        println("The animal swims")
     }
 }
 
-open class Breathe() {
-    open fun breathe() {}
+sealed class Breathe() {
+    abstract fun breathe()
 }
 
 class Lungs(): Breathe() {
@@ -58,8 +84,8 @@ class Gills(): Breathe() {
     }
 }
 
-open class Reproduce() {
-    open fun reproduce(){}
+sealed class Reproduce() {
+    abstract fun reproduce()
 }
 
 class LiveBirth(): Reproduce() {
