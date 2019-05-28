@@ -1,9 +1,9 @@
-sealed class Animal(id: Int, name: String, yearDiscovered: Int) {
+sealed class Animal(id: Int, val name: String, yearDiscovered: Int) {
     fun eat(): String {
-        return "The animal eats" //replace animal with ${name}
+        return "$name eats"
     }
     open fun move(): String {
-        return "The animal walks"
+        return "$name walks"
     }
     abstract fun breath(): String
     abstract fun reproduce(): String
@@ -12,40 +12,41 @@ sealed class Animal(id: Int, name: String, yearDiscovered: Int) {
 
 class Mammal(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
     override fun breath(): String {
-        return "The mammal huff and puffs"
+        return "$name huffs and puffs"
     }
 
     override fun reproduce(): String {
-       return "has a live birth"
+       return "$name has a live birth"
     }
 
     fun walk() = this.move()
 }
 
 class Bird(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
+
     override fun breath(): String {
-        return "The bird breathes in the wind"
+        return "$name breathes in the wind"
     }
 
     override fun reproduce(): String {
-        return "The bird lays an egg"
+        return "$name lays an egg"
     }
 
     override fun move(): String {
-        return "The bird flies up high"
+        return "$name flies up high"
     }
 }
 
 class Fish(id: Int, name: String, yearDiscovered: Int): Animal(id, name, yearDiscovered) {
     override fun breath(): String {
-        return "The fish sucks in some water"
+        return "$name sucks in some water"
     }
 
     override fun reproduce(): String {
-        return "The fish lays an egg"
+        return "$name lays an egg"
     }
 
     override fun move(): String {
-        return "the fish swims around"
+        return "$name swims around"
     }
 }
