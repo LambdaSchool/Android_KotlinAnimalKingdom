@@ -17,6 +17,6 @@ abstract class Animal(val id: Int, val name: String, val yearDiscovered: Int) {
     }
 
     override fun toString(): String {
-        return "$name is a ${this::class.simpleName} who was discovered in the year $yearDiscovered. To eat it will ${eat()}; to move it will ${move()}; to breate it uses ${breathe()}; to reproduce it produces ${reproduce()}."
+        return "$name is a ${this::class.simpleName} which was discovered in the year $yearDiscovered. To eat it will ${eat()}; to move it will ${move()}; to breathe it uses ${breathe()}; to reproduce it produces ${reproduce()}."
     }
 }

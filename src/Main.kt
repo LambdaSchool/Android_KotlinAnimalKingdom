@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     println(mammal.breathe())
     println(mammal.reproduce())*/
 
-    val animals: List<Animal> = listOf<Animal>(
+    val animals: MutableList<Animal> = mutableListOf<Animal>(
         Mammal(Random.nextInt(Int.MAX_VALUE), "Panda", 1869),
         Mammal(Random.nextInt(Int.MAX_VALUE), "Zebra", 1778),
         Mammal(Random.nextInt(Int.MAX_VALUE), "Koala", 1816),
@@ -25,4 +25,16 @@ fun main(args: Array<String>) {
         Fish(Random.nextInt(Int.MAX_VALUE), "Perch", 1758)
     )
 
+//    animals.sortedByDescending { it.yearDiscovered }
+//    animals.forEach { println(it.toString()) }
+
+    animals.sortWith(Comparator { a, b ->
+        when {
+            a.yearDiscovered < b.yearDiscovered -> 1
+            a.yearDiscovered == b.yearDiscovered -> 0
+            else -> -1
+        }
+    })
+
+    animals.forEach { println(it.toString()) }
 }
