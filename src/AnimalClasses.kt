@@ -20,22 +20,56 @@ class Fish(id: Int, name: String, yearDiscovered: Int,
              swim: Swim, gills: Gills, eggs: Eggs):
     Animal(id, name, yearDiscovered, swim, gills, eggs) {}
 
-open class Move()
+open class Move() {
+    open fun move() {}
+}
 
-class Walk(): Move()
+class Walk(): Move() {
+    override fun move() {
+        println("The animal walks");
+    }
+}
 
-class Fly(): Move()
+class Fly(): Move() {
+    override fun move() {
+        println("The animal flies");
+    }
+}
 
-class Swim(): Move()
+class Swim(): Move() {
+    override fun move() {
+        println("The animal swims");
+    }
+}
 
-open class Breathe()
+open class Breathe() {
+    open fun breathe() {}
+}
 
-class Lungs(): Breathe()
+class Lungs(): Breathe() {
+    override fun breathe() {
+        println("The animal breathes with lungs")
+    }
+}
 
-class Gills(): Breathe()
+class Gills(): Breathe() {
+    override fun breathe() {
+        println("The animal breathes with gills")
+    }
+}
 
-open class Reproduce()
+open class Reproduce() {
+    open fun reproduce(){}
+}
 
-class LiveBirth(): Reproduce()
+class LiveBirth(): Reproduce() {
+    override fun reproduce() {
+        println("The animal reproduces with live birth")
+    }
+}
 
-class Eggs(): Reproduce()
+class Eggs(): Reproduce() {
+    override fun reproduce() {
+        println("The animal reproduces with eggs")
+    }
+}
