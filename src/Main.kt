@@ -83,7 +83,7 @@ fun main(args: Array<String>) {
     filteredAnimals3.forEach { println(it.toString()) }
 
     println("------------------------------------------------------------\nAscending order alphabetically of animals discovered in 1758\n------------------------------------------------------------")
-    val filteredAnimals4: List<Animal> = animals.filter { element -> element.yearDiscovered == 1758 }.sortedBy { it.name }
+    val filteredAnimals4: List<Animal> = animals.filter { element -> element.yearDiscovered == 1758 }.sortedBy { element -> element.name }
     filteredAnimals4.forEach { println(it.toString()) }
 }
 
