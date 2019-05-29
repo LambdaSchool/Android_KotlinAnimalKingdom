@@ -25,9 +25,23 @@ fun main(args: Array<String>) {
         Fish(Random.nextInt(Int.MAX_VALUE), "Perch", 1758)
     )
 
-//    animals.sortedByDescending { it.yearDiscovered }
-//    animals.forEach { println(it.toString()) }
 
+//    animals.sortByDescending { it.yearDiscovered }
+//    animals.forEach { println(it.toString()) }
+//    animals.sortBy { it.name }
+//    animals.forEach { println(it.toString()) }
+//    val filteredAnimals1 = animals.filter { it.breathe() == "lungs" }
+//    filteredAnimals1.forEach { println(it.toString()) }
+//    val filteredAnimals2: List<Animal> = animals.filter { it.breathe() == "lungs" && it.yearDiscovered == 1758 }
+//    filteredAnimals2.forEach { println(it.toString()) }
+//    val filteredAnimals3: List<Animal> = animals.filter { it.reproduce() == "eggs" && it.breathe() == "lungs" }
+//    filteredAnimals3.forEach { println(it.toString()) }
+//    val filteredAnimals3: List<Animal> = animals.filter { it.yearDiscovered == 1758 }
+//    filteredAnimals3.sortedBy { it.name }
+//    filteredAnimals3.forEach { println(it.toString()) }
+
+
+    println("-----------------------------------\nDescending order by Year Discovered\n-----------------------------------")
     animals.sortWith(Comparator { a, b ->
         when {
             a.yearDiscovered < b.yearDiscovered -> 1
@@ -35,6 +49,36 @@ fun main(args: Array<String>) {
             else -> -1
         }
     })
-
     animals.forEach { println(it.toString()) }
+
+    println("--------------------------------------\nAscending order alphabetically by name\n--------------------------------------")
+    animals.sortWith(Comparator { a, b ->
+        when {
+            a.name > b.name -> 1
+            a.name == b.name -> 0
+            else -> -1
+        }
+    })
+    animals.forEach { println(it.toString()) }
+
+    println("--------------------\nOrdering by movement\n--------------------")
+    animals.sortWith(Comparator { a, b ->
+        when {
+            a.move() == b.move() -> 1
+            a.move() > b.move() -> 0
+            else -> -1
+        }
+    })
+    animals.forEach { println(it.toString()) }
+
+    println("------------------------\nShow only lung-breathers\n------------------------")
+    animals.sortWith(Comparator { a, b ->
+        when {
+            a.breathe() == "lungs" -> 0
+            else -> -1
+        }
+    })
+    animals.forEach { println(it.toString()) }
+
+
 }
