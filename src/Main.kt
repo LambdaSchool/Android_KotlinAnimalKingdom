@@ -36,8 +36,7 @@ fun main(args: Array<String>) {
 //    filteredAnimals2.forEach { println(it.toString()) }
 //    val filteredAnimals3: List<Animal> = animals.filter { it.reproduce() == "eggs" && it.breathe() == "lungs" }
 //    filteredAnimals3.forEach { println(it.toString()) }
-//    val filteredAnimals3: List<Animal> = animals.filter { it.yearDiscovered == 1758 }
-//    filteredAnimals3.sortedBy { it.name }
+//    val filteredAnimals3: List<Animal> = animals.filter { it.yearDiscovered == 1758 }.sortedBy { it.name }
 //    filteredAnimals3.forEach { println(it.toString()) }
 
 
@@ -72,13 +71,21 @@ fun main(args: Array<String>) {
     animals.forEach { println(it.toString()) }
 
     println("------------------------\nShow only lung-breathers\n------------------------")
-    animals.sortWith(Comparator { a, b ->
-        when {
-            a.breathe() == "lungs" -> 0
-            else -> -1
-        }
-    })
-    animals.forEach { println(it.toString()) }
+    val filteredAnimals: List<Animal> = animals.filter { element -> element.breathe() == "lungs" }
+    filteredAnimals.forEach { println(it.toString()) }
 
+    println("--------------------------------------\nShow only lung-breathers named in 1758\n--------------------------------------")
+    val filteredAnimals2: List<Animal> = animals.filter { element -> element.breathe() == "lungs" && element.yearDiscovered == 1758 }
+    filteredAnimals2.forEach { println(it.toString()) }
 
+    println("-------------------------------------------\nShow only egg layers who are lung-breathers\n-------------------------------------------")
+    val filteredAnimals3: List<Animal> = animals.filter { element -> element.reproduce() == "eggs" && element.breathe() == "lungs" }
+    filteredAnimals3.forEach { println(it.toString()) }
+
+    println("------------------------------------------------------------\nAscending order alphabetically of animals discovered in 1758\n------------------------------------------------------------")
+    val filteredAnimals4: List<Animal> = animals.filter { element -> element.yearDiscovered == 1758 }.sortedBy { it.name }
+    filteredAnimals4.forEach { println(it.toString()) }
 }
+
+
+
